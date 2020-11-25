@@ -1,0 +1,20 @@
+{
+  "name": "mysql-employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattHarris9/MySQL-Employee-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattHarris9/MySQL-Employee-tracker/issues"
+  },
+  "homepage": "https://github.com/MattHarris9/MySQL-Employee-tracker#readme"
+}
