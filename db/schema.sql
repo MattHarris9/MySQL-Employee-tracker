@@ -9,7 +9,7 @@ create table department
     Primary key (id)
 );
 
-create table role (
+create table roles (
     id int auto_increment,
     title varchar(30) not null,
     salary decimal(6,2) not null,
