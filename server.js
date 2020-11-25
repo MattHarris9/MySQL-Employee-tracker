@@ -77,7 +77,7 @@ function viewDepartments() {
       var query = `SELECT * FROM department`;
       connection.query(query, (err, data) => {
         if (err) throw err;
-        console.log(data)
+        console.table(data);
         start();
       })
 };
