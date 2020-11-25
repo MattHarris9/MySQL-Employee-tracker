@@ -73,13 +73,27 @@ function start() {
 }
 
 function viewDepartments() {
+    var query = "SELECT * from department";
+        connection.query(query, function(err ,res) {
+            console.log(`DEPARTMENTS:`)
+            res.forEach(department => {
+                console.log(`ID: ${departmen.id} | Name : ${department.name}`)
+            })
+            start();
+        });
 
 
-}
 
 function viewRoles() {
+    var query = "SELECT * from roles";
+        connection.query(query, function(err ,res) {
+            console.log(`ROLES:`)
+            res.forEach(role => {
+                console.log(`ID: ${role.id} | Name : ${role.tile} | Salary: ${role.salary} | Department ID: ${role.department_id}`)
+            })
+            start();
 
-}
+});
 
 function viewEmployees() {
 
@@ -100,4 +114,3 @@ function addEmployee() {
 
 function updateRole() {
 
-}
