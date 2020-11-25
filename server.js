@@ -75,12 +75,14 @@ function start() {
 function viewDepartments() {
     var query = "SELECT * from department";
         connection.query(query, function(err ,res) {
-            console.log(`DEPARTMENTS:`)
+            console.log(`DEPARTMENT:`)
             res.forEach(department => {
-                console.log(`ID: ${departmen.id} | Name : ${department.name}`)
+                console.log(`ID: ${department.id} | Name : ${department.name}`)
             })
             start();
         });
+
+}
 
 
 
@@ -94,6 +96,8 @@ function viewRoles() {
             start();
 
 });
+
+}
 
 function viewEmployees() {
 
@@ -114,3 +118,4 @@ function addEmployee() {
 
 function updateRole() {
 
+}
