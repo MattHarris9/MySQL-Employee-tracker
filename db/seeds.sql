@@ -6,13 +6,14 @@ insert into department (name) values ("lead developer");
 insert into department (name) values ("IT");
 insert into department (name) values ("programmer");
 
-insert into roles (title, salary, department_id) values ("IT", 60000, 4);
-insert into roles (title, salary, department_id) values ("Marketing Team", 100000, 1);
-insert into roles (title, salary, department_id) values ("lead developer", 1000000, 3);
-insert into roles (title, salary, department_id) values ("programmer", 80000, 2);
-insert into roles (title, salary, department_id) values ("head programmer", 65000, 5);
+insert into roles (title, salary, department_id) values ("head programmer",90, 1);
+insert into roles (title, salary, department_id) values ("Marketing Team", 100, 2);
+insert into roles (title, salary, department_id) values ("lead developer", 100, 3);
+insert into roles (title, salary, department_id) values ("IT", 60, 4);
+insert into roles (title, salary, department_id) values ("programmer", 80, 5);
 
-insert into employee (first_name, second_name, roles_id) values("Matt", "Harris", 3);
-insert into employee (first_name, second_name, roles_id) values("Rachel", "Lindsey", 1);
-insert into employee (first_name, second_name, roles_id) values("Greg", "Slayer", 4);
-insert into employee (first_name, second_name, roles_id) values("Megan", "Henney", 6);
+insert into employee (first_name, last_name, role_id) values("Matt", "Harris", 1);
+insert into employee (first_name, last_name, role_id) values("Rachel", "Bean", 2);
+insert into employee (first_name, last_name, role_id) values("Greg", "Slayer", 3);
+insert into employee (first_name, last_name, role_id) values("Megan", "Henney", 4);
+insert into employee (first_name, last_name, role_id) values ("John", "Moen", 5);
