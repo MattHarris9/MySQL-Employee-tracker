@@ -15,13 +15,14 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
+    console.log("Connectd as id" + connection.threadId);
     start();
 });
 
 function start() {
     inquirer
         .prompt({
-            name: "action",
+            name: "start",
             type: "list",
             message: "What would you like to do?",
             choices: [
@@ -31,12 +32,11 @@ function start() {
                 "Add a department",
                 "Add a role",
                 "Add an employee",
-                "Update employee role",
-                "Exit"
+                "Update employee role"
             ]
         })
-        .then(function (answer) {
-            switch (answer.acton) {
+        .then(function (response) {
+            switch (response.start) {
                 case "View all departments":
                     viewDepartments();
                     break;
@@ -85,19 +85,21 @@ function viewDepartments() {
 
 
 function viewRoles() {
-    var query = "SELECT * from roles";
-        connection.query(query, function(err ,res) {
-            console.log(`ROLES:`)
-            res.forEach(role => {
-                console.log(`ID: ${role.id} | Name : ${role.tile} | Salary: ${role.salary} | Department ID: ${role.department_id}`)
-            })
-            start();
-
-});
-
-}
+    var query = `SELECT * FROM roles`;
+      connection.query(query, (err, data) => {
+        if (err) throw err;
+        console.table(data);
+        start();
+      })
+};
 
 function viewEmployees() {
+    var query = `SELECT * FROM employee`;
+      connection.query(query, (err, data) => {
+        if (err) throw err;
+        console.table(data);
+        start();
+      })
 
 }
 
