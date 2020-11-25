@@ -9,11 +9,11 @@ const connection = mysql.createConnection({
     user: "root",
 
     password: "password",
-    database: "employee_eb"
+    database: "employee_db"
 });
 
-connection.connection(function(err) {
-    if (err) throw(err);
+connection.connect(function(err) {
+    if (err) throw err;
     start();
 });
 
@@ -68,5 +68,5 @@ function addEmployee(){
 }
 
 function updateRole() {
-    
+
 }

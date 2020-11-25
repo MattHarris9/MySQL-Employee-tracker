@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MattHarris9/MySQL-Employee-tracker/issues"
   },
-  "homepage": "https://github.com/MattHarris9/MySQL-Employee-tracker#readme"
+  "homepage": "https://github.com/MattHarris9/MySQL-Employee-tracker#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
