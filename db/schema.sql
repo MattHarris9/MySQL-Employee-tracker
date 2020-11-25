@@ -42,3 +42,10 @@ insert into employee (first_name, last_name, role_id) values("Rachel", "Bean", 2
 insert into employee (first_name, last_name, role_id) values("Greg", "Slayer", 3);
 insert into employee (first_name, last_name, role_id) values("Megan", "Henney", 4);
 insert into employee (first_name, last_name, role_id) values ("John", "Moen", 5);
+
+
+select * from department; 
+
+select * from roles;
+
+select * from employee;

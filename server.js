@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+const mytable = require("console.table");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -73,16 +74,13 @@ function start() {
 }
 
 function viewDepartments() {
-    var query = "SELECT * from department";
-        connection.query(query, function(err ,res) {
-            console.log(`DEPARTMENT:`)
-            res.forEach(department => {
-                console.log(`ID: ${department.id} | Name : ${department.name}`)
-            })
-            start();
-        });
-
-}
+      var query = `SELECT * FROM department`;
+      connection.query(query, (err, data) => {
+        if (err) throw err;
+        console.log(data)
+        start();
+      })
+};
 
 
 

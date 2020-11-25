@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MattHarris9/MySQL-Employee-tracker#readme",
   "dependencies": {
+    "console.table": "^0.10.0",
     "inquirer": "^7.3.3"
   }
 }
