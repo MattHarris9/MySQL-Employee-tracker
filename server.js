@@ -157,12 +157,8 @@ function addRole() {
 
 
 function addEmployee() {
-    let addQuery = `SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, role.title, department.name,
-    role.salary, employee.manager_id 
-      FROM employee
-      INNER JOIN role on role.id = employee.role_id
-      INNER JOIN department ON department.id = role.department_id`
-    connection.query(addQuery, (err, results) => {
+    let addQuery = `SELECT * from employee`
+    connection.query(addQuery, (err, data) => {
         if (err) throw err;
         inquirer.prompt([
             {
@@ -177,23 +173,19 @@ function addEmployee() {
                 type: "list",
                 name: "role",
                 message: "Please select employee title",
-                choices: results.map(role => {
-                    return { name: role.title, value: role.role_id }
+                choices: results.map(roles => {
+                    return { name: roles.title }
                 })
-            }, {
-                type: "input",
-                name: "manager",
-                message: "Please enter employee manager id"
             }])
-            .then(answer => {
-                console.log(answer);
-                connection.query(
+            .then(data => {
+                console.log(data);
+                connection.query(query, 
                     "INSERT INTO employee (first_name, last_name, role_id) VALUES (?,?,?)",
-                    [answer.first_name, answer.last_name, answer.role, answer.manager],
+                    [data.first_name, data.last_name, data.role],
                     function (err) {
                         if (err) throw err
-                        console.log(`${answer.first_name} ${answer.last_name} added as a new employee`)
-                        init();
+                        console.table(`${answer.first_name} ${answer.last_name} added as a new employee`)
+                        start();
                     })
             })
     })
