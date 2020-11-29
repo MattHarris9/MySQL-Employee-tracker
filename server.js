@@ -148,7 +148,7 @@ function addRole() {
                 connection.query(query, [answer.title, answer.salary, answer.department_id], function (err) {
                     if (err) throw err;
                     console.log(`${answer.title} added as a new role`)
-                    start();
+                    viewRoles()
                 })
 
             });
@@ -157,9 +157,7 @@ function addRole() {
 
 
 function addEmployee() {
-    let addQuery = `SELECT * from employee`
-    connection.query(addQuery, (err, data) => {
-        if (err) throw err;
+    
         inquirer.prompt([
             {
                 type: "input",
@@ -177,18 +175,18 @@ function addEmployee() {
                     return { name: roles.title }
                 })
             }])
-            .then(data => {
-                console.log(data);
+            .then(response => {
+                console.log(response);
                 connection.query(query, 
                     "INSERT INTO employee (first_name, last_name, role_id) VALUES (?,?,?)",
-                    [data.first_name, data.last_name, data.role],
+                    [response.first_name, response.last_name, response.role],
                     function (err) {
                         if (err) throw err
-                        console.table(`${answer.first_name} ${answer.last_name} added as a new employee`)
-                        start();
+                        console.table(`${response.first_name} ${response.last_name} added as a new employee`)
+                        viewEmployees()
                     })
             })
-    })
+
 
 }
 
