@@ -60,7 +60,7 @@ function start() {
                 case "Add a employee":
                     addEmployee();
                     break;
-                
+
                 case "Update employee role":
                     updateRole();
                     break;
@@ -74,39 +74,50 @@ function start() {
 }
 
 function viewDepartments() {
-      var query = `SELECT * FROM department`;
-      connection.query(query, (err, data) => {
+    var query = `SELECT * FROM department`;
+    connection.query(query, (err, data) => {
         if (err) throw err;
         console.table(data);
         start();
-      })
+    })
 };
 
 
 
 function viewRoles() {
     var query = `SELECT * FROM roles`;
-      connection.query(query, (err, data) => {
+    connection.query(query, (err, data) => {
         if (err) throw err;
         console.table(data);
         start();
-      })
+    })
 };
 
 function viewEmployees() {
     var query = `SELECT * FROM employee`;
-      connection.query(query, (err, data) => {
+    connection.query(query, (err, data) => {
         if (err) throw err;
         console.table(data);
         start();
-      })
+    })
 
 }
 
 function addDepartment() {
-
-
-}
+    inquirer.prompt ({
+        name: "department",
+        type: "input",
+        message :"What is the new department you would like to add?",
+    })
+    .then(function(response){
+        var query = "INSERT INTO department (name) values (?)";
+        connection.query(query, response.department, function(err, data){
+            if (err) throw err;
+            console.log(`You have add this new departmetn: ${data.department}`)
+        })
+        viewDepartments()
+    })
+};
 
 function addRole() {
 
